@@ -102,10 +102,10 @@ To Delete Cluster
 ====================================================================================================
 
 
-IF you wan to SSH to Kubernates Master or Nodes Created by KOPS. You can SSH From KOPS_Server
+IF you want to SSH to Kubernates Master or Nodes Created by KOPS. You can SSH From KOPS_Server
 
 ssh  admin@<IPOrDNS>
-it above command  is not working
+if the above command  is not working
 then execute
 ssh -i ~/.ssh/id_rsa admin@<IPOrDNS>
   
