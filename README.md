@@ -24,7 +24,7 @@ sudo su - eksadmin
 ```
 ### Install Terraform
 ``` sh
-$ git clone https://github.com/mylandmarktechs/eks-terraform-setup
+$ git clone https://github.com/akumbusuccess/eks-terraform-setup
 $ cd eks-terraform-setup
 # install terraform using a bash shell script
 $ sh terraform-install.sh
@@ -38,9 +38,9 @@ $ vi .bashrc
    export PATH="$PATH:/usr/local/bin"
 # Source .bashrc to reflect for current session
 $ source ~/.bashrc  
-# run the scripts https://github.com/mylandmarktechs/eks-terraform-setup/blob/main/terraform-install.sh
+# run the scripts https://github.com/akumbusuccess/eks-terraform-setup/blob/main/terraform-install.sh
 
-$ sudo yum install wget unzip -y
+$ sudo apt install wget unzip -y
 $ wget https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip
 $ sudo unzip terraform_0.12.26_linux_amd64.zip -d /usr/local/bin/
 # Export terraform binary path temporally
@@ -50,11 +50,11 @@ $ vi .bashrc
    export PATH="$PATH:/usr/local/bin"
 # Source .bashrc to reflect for current session
 $ source ~/.bashrc  
-# run the scripts https://github.com/mylandmarktechs/eks-terraform-setup/blob/main/terraform-install.sh
+# run the scripts https://github.com/akumbusuccess/eks-terraform-setup/blob/main/terraform-install.sh
 ```
 #### Clone terraform scripts
 ``` sh
-$ git clone https://github.com/mylandmarktechs/eks-terraform-setup
+$ git clone https://github.com/akumbusuccess/eks-terraform-setup
 $ cd eks-terraform-setup
 ```
 #### <span style="color:orange">Update Your Key Name in variables.tf file before executing terraform script.</span>
@@ -71,40 +71,3 @@ $ terraform plan
 $ terraform apply --auto-approve
 ```
 
-```sh
-##  Destroy Infrastructure  
-$ terraform destroy --auto-approve
-
-## create the kubeconfig file  
-$ mkdir .kube/ 
-$ vi .kube/config
-$ kubectl get pod
-$ #!/bin/bash 
-$ sh iam-authenticator.sh 
-$ kubectl get pod
-## deploy cluster auto scaler
-$ kubectl apply -f clusterautoscaler.yml
-
- ```
-```
-##  Destroy Infrastructure  
-```sh
-$ terraform destroy --auto-approve 
-```
-
-
-# EKS Getting Started Guide Configuration
-
-This is the full configuration from https://www.terraform.io/docs/providers/aws/guides/eks-getting-started.html
-
-See that guide for additional information.
-
-NOTE: This full configuration utilizes the [Terraform http provider](https://www.terraform.io/docs/providers/http/index.html) to call out to icanhazip.com to determine your local workstation external IP for easily configuring EC2 Security Group access to the Kubernetes servers. Feel free to replace this as necessary.
-
-
-kubectl create deployment autoscaler-demo --image=nginx
-kubectl get pods --all-namespaces | grep Running | wc -l
-kubectl get nodes -o yaml | grep pods
-kubectl scale deployment autoscaler-demo --replicas=20
-https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html
-aws-iam-authenticator help
